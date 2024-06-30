@@ -3,8 +3,10 @@ package com.example.BlowFish_In_SB.Entity;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
-@Table(name ="GBLT_DEPARTMENT_MST", schema = "AHISM")
+@Table(name = "GBLT_DEPARTMENT_MST", schema = "AHISM")
 public class GBLT_DEPARTMENT_MST {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,10 +18,38 @@ public class GBLT_DEPARTMENT_MST {
     private String hodCode;
     @Column(name = "gstr_dept_short")
     private String deptShort;
-    @Column(name = "gnum_location_code" )
+    @Column(name = "gnum_location_code")
     private int locationCode;
     @Column(name = "gnum_isvalid")
     private int isValid;
+    @Column(name = "gnum_seat_id")
+    private int seatId;
+    @Column(name = "gnum_age_limit")
+    private int ageLimit;
+    @Column(name = "gstr_gender_code")
+    private String GenderCode;
+    @Column(name = "gdt_entry_date")
+    private Date entryDate;
+    @Column(name = "gdt_lstmod_date")
+    private Date lastModifiedDate;
+    @Column(name = "gnum_lstmod_seatid")
+    private int lastModifiedSeatId;
+    @Column(name = "gstr_remarks")
+    private String remark;
+    @Column(name = "gnum_hospital_code")
+    private int hospitalCode;
+    @Column(name = "gnum_dept_type")
+    private int deptartmentType;
+    @Column(name = "gnum_is_rotationshift_req")
+    private int isRotationalShiftRequired;
+    @Column(name = "gdt_eff_date")
+    private Date effectiveDate;
+    @Column(name = "gnum_is_no_due_form_req")
+    private int isNoDueFormRequired;
+    @Column(name = "gnum_is_ward_req")
+    private int isWardRequired;
+    @Column(name = "gnum_is_academic_dept")
+    private int isAcademicDepartment;
     /*
    -- * gnum_dept_code numeric(5,0) NOT NULL,
     /gstr_dept_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
