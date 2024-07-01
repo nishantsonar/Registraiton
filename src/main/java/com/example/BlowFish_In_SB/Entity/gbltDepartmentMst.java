@@ -2,16 +2,25 @@ package com.example.BlowFish_In_SB.Entity;
 
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.Date;
 
+
+
 @Entity
-@Table(name = "GBLT_DEPARTMENT_MST", schema = "AHISM")
-public class GBLT_DEPARTMENT_MST {
+@Table(name = "GBLT_DEPARTMENT_MST", schema = "ahiscl")
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
+@ToString
+@Data
+public class gbltDepartmentMst {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "gnum_dept_code")
-    private int deptCode;
+    private Integer deptCode;
     @Column(name = "gstr_dept_name")
     private String deptName;
     @Column(name = "gstr_hod_code")
@@ -19,13 +28,13 @@ public class GBLT_DEPARTMENT_MST {
     @Column(name = "gstr_dept_short")
     private String deptShort;
     @Column(name = "gnum_location_code")
-    private int locationCode;
+    private Integer locationCode;
     @Column(name = "gnum_isvalid")
-    private int isValid;
+    private Integer isValid;
     @Column(name = "gnum_seat_id")
-    private int seatId;
+    private Integer seatId;
     @Column(name = "gnum_age_limit")
-    private int ageLimit;
+    private Integer ageLimit;
     @Column(name = "gstr_gender_code")
     private String GenderCode;
     @Column(name = "gdt_entry_date")
@@ -33,23 +42,23 @@ public class GBLT_DEPARTMENT_MST {
     @Column(name = "gdt_lstmod_date")
     private Date lastModifiedDate;
     @Column(name = "gnum_lstmod_seatid")
-    private int lastModifiedSeatId;
+    private Integer lastModifiedSeatId;
     @Column(name = "gstr_remarks")
     private String remark;
     @Column(name = "gnum_hospital_code")
-    private int hospitalCode;
+    private Integer hospitalCode;
     @Column(name = "gnum_dept_type")
     private int deptartmentType;
     @Column(name = "gnum_is_rotationshift_req")
-    private int isRotationalShiftRequired;
+    private Integer isRotationalShiftRequired;
     @Column(name = "gdt_eff_date")
     private Date effectiveDate;
     @Column(name = "gnum_is_no_due_form_req")
-    private int isNoDueFormRequired;
+    private Integer isNoDueFormRequired;
     @Column(name = "gnum_is_ward_req")
-    private int isWardRequired;
+    private Integer isWardRequired;
     @Column(name = "gnum_is_academic_dept")
-    private int isAcademicDepartment;
+    private Integer isAcademicDepartment;
     /*
    -- * gnum_dept_code numeric(5,0) NOT NULL,
     /gstr_dept_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
