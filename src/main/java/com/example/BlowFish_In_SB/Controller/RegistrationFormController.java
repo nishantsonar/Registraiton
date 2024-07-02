@@ -6,6 +6,9 @@ import com.example.BlowFish_In_SB.Entity.gbltDepartmentMst;
 import com.example.BlowFish_In_SB.Entity.gblt_nationality_mst;
 import com.example.BlowFish_In_SB.Reposiory.gblt_department_mst_repository;
 import com.example.BlowFish_In_SB.Reposiory.gblt_nationality_mst_repository;
+import com.example.BlowFish_In_SB.Service.CentreMasterService;
+import com.example.BlowFish_In_SB.Service.DepartmentMasterService;
+import com.example.BlowFish_In_SB.Service.NationalityMasterService;
 import com.example.BlowFish_In_SB.Service.RegistrationFormService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,9 +27,13 @@ public class RegistrationFormController {
     @Autowired
     private RegistrationFormService registrationFormService;
     @Autowired
-    private gblt_nationality_mst_repository gblt_nationality_mst_repository;
+    private DepartmentMasterService departmentMasterService;
     @Autowired
-    private gblt_department_mst_repository gbltDepartmentMstRepository;
+    private CentreMasterService centreMasterService;
+    @Autowired
+    private NationalityMasterService nationalityMasterService;
+
+
     @PostMapping("/")
     public String encryptedData(@RequestBody String data)  {
 
@@ -40,13 +47,9 @@ public class RegistrationFormController {
 
 @GetMapping("/test")
     public ResponseEntity<Map> test() throws NoSuchAlgorithmException {
-       List<gblt_nationality_mst> gblt_nationality_mst = gblt_nationality_mst_repository.findAll();
-       List<responseNationality> responseNationalities = gblt_nationality_mst.stream().map(gblt_nationality_mst1 -> new responseNationality(gblt_nationality_mst1.getNationalityCode(),gblt_nationality_mst1.getNationalityName())).toList();
-    Map essentialMap = new HashMap();
-    List<gbltDepartmentMst> gbltDepartmentMstList=gbltDepartmentMstRepository.findAll();
-    List<ResponseDepatment> responseDepartments = gbltDepartmentMstList.stream().map(departmentMst1 -> new ResponseDepatment(departmentMst1.getDeptCode(),departmentMst1.getDeptName())).toList();
-    essentialMap.put("list",responseNationalities);
-    essentialMap.put("department",responseDepartments);
+      Map essentialMap = new HashMap();
+//    essentialMap.put("list",responseNationalities);
+//    essentialMap.put("department",responseDepartments);
        return ResponseEntity.ok(essentialMap);
     }
 }
