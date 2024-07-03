@@ -16,7 +16,8 @@ public class NationalityMasterService {
 
     public List<responseNationality> findAll(){
         List<gblt_nationality_mst> gblt_nationality_mst = gblt_nationality_mst_repository.findAll();
-        List<responseNationality> responseNationalities = gblt_nationality_mst.stream().map(gblt_nationality_mst1 -> new responseNationality(gblt_nationality_mst1.getNationalityCode(),gblt_nationality_mst1.getNationalityName())).toList();
+        List<responseNationality> responseNationalities = gblt_nationality_mst.stream().map(gblt_nationality_mst1 ->
+                new responseNationality(gblt_nationality_mst1.getNationalityCode(),gblt_nationality_mst1.getNationalityName())).toList();
 return responseNationalities;
     }
 
