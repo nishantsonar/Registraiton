@@ -38,12 +38,12 @@ public class RegistrationFormController {
     }
 
 @GetMapping("/test")
-    public ResponseEntity<Map> test() throws NoSuchAlgorithmException {
+    public ResponseEntity<String> test() throws NoSuchAlgorithmException {
       Map essentialMap = new HashMap();
-      essentialMap.put("departmentList",departmentMasterService.findAll());
-      essentialMap.put("centerList",centreMasterService.findAll());
-      essentialMap.put("nationalityList",nationalityMasterService.findAll());
-      essentialMap.put("natureOfJobList",natureOfJobService.findAll());
-       return ResponseEntity.ok(essentialMap);
+//      essentialMap.put("departmentList",departmentMasterService.findAll());
+//      essentialMap.put("centerList",centreMasterService.findAll());
+//      essentialMap.put("nationalityList",nationalityMasterService.findAll());
+//      essentialMap.put("natureOfJobList",natureOfJobService.findAll());
+       return ResponseEntity.ok("essentialMap");
     }
 }

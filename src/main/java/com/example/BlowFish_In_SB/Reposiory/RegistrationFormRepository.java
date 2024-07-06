@@ -1,7 +1,7 @@
 package com.example.BlowFish_In_SB.Reposiory;
+
 import com.example.BlowFish_In_SB.Entity.RegistrationForm;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
 @Repository

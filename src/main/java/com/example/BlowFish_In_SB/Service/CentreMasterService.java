@@ -1,9 +1,7 @@
 package com.example.BlowFish_In_SB.Service;
 
-import com.example.BlowFish_In_SB.Dtos.ResponseCentreMaster;
 import com.example.BlowFish_In_SB.Dtos.ResponseDepatment;
 import com.example.BlowFish_In_SB.Entity.CentreMaster;
-import com.example.BlowFish_In_SB.Entity.gbltDepartmentMst;
 import com.example.BlowFish_In_SB.Reposiory.CentreMasterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
