@@ -5,11 +5,32 @@ spring:
     url: jdbc:postgresql://10.226.80.20:5446/aiims_delhi
     username: aiimsdelhi
     password: A11msdelhi@29
-  jpa:
-    hibernate:
-      ddl-auto: none
-  open-in-view: false
-    show-sql:trues
+    #    url: jdbc:postgresql://localhost:5433/postgres
+    #    username: postgres
+    #    password: root
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 1
+      connection-timeout: 30000 #30 Seconds
+      idle-timeout: 60000  #1 Minute
+      max-lifetime: 240000  #4 Minute
+      keepalive-time: 90000 #1 Minute 30 Seconds
+      initialization-fail-timeout: 45000  #45 Seconds
+      pool-name: Hikari-Pool-Name
+      leak-detection-threshold: 2000
+    jpa:
+      show-sql: ture
+      hibernate:
+        ddl-auto: none
+      open-in-view: false
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+          jdbc:
+            batchSize: 100
+            orderInserts: true
+            orderUpdates: true
 
 security:
   jwt:
@@ -17,6 +38,6 @@ security:
     # 1h in millisecond
     #    expiration-time: 3600000
     # 30Min in millisecond
-#    expiration-time: 1800000
+    #    expiration-time: 1800000
     # 1Min in millisecond
     expiration-time: 60000
