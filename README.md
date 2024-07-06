@@ -1,10 +1,13 @@
 while accessing public url's
-![How to add blank token.png](How%20to%20add%20blank%20token.png)
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+![How_to_add_blank_token.png](How_to_add_blank_token.png)
+
 ![SignUp.png](SignUp.png)
 
 How to Add toekn
-![How to add token.png](How%20to%20add%20token.png)
+
+![How_to_add_token.png](How_to_add_token.png)
 
 How to send User Credentials
-![How to send user credentials.png](How%20to%20send%20user%20credentials.png)
+
+![How_to_send_user_credentials.png](How_to_send_user_credentials.png)
