@@ -23,7 +23,7 @@ spring:
     jpa:
       show-sql: ture
       hibernate:
-        ddl-auto: update
+        ddl-auto: none
       open-in-view: false
       properties:
         hibernate:
