@@ -1,13 +1,3 @@
-#FROM openjdk:18
-#
-#WORKDIR /RegistrationPageWithJWT
-#
-#COPY .target/BlowFish_In_SB-0.0.1-SNAPSHOT.jar /app
-#
-#EXPOSE 8080
-#
-#CMD[ "java","-jar", "BlowFish_In_SB-0.0.1-SNAPSHOT.jar"]
-#
 
 FROM maven:3.8.3-openjdk-17 AS build
 
@@ -23,7 +13,6 @@ FROM openjdk:17
 
 WORKDIR /app
 
-#COPY --from=build/BlowFish_In_SB/src/app/target/BlowFish_In_SB-0.0.1-SNAPSHOT.jar ./app.jar
 COPY --from=build /usr/src/app/target/BlowFish_In_SB-0.0.1-SNAPSHOT.jar ./app.jar
 
 #
@@ -31,6 +20,7 @@ COPY --from=build /usr/src/app/target/BlowFish_In_SB-0.0.1-SNAPSHOT.jar ./app.ja
 #    ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime && \
 #    echo "Asia/Kolkata" > /etc/timezone
 
-EXPOSE 8080
+#expose the port which is used to run project on local
+EXPOSE 9090
 
 CMD ["java","-Dspring.profiles.active=dev", "-jar","app.jar"]

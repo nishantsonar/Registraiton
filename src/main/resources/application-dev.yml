@@ -2,12 +2,13 @@ server:
   port: 9090
 spring:
   datasource:
-    url: jdbc:postgresql://10.226.80.20:5446/aiims_delhi
-    username: aiimsdelhi
-    password: A11msdelhi@29
-    #    url: jdbc:postgresql://localhost:5433/postgres
-    #    username: postgres
-    #    password: root
+    #    url: jdbc:postgresql://10.226.80.20:5446/aiims_delhi
+    #    username: aiimsdelhi
+    #    password: A11msdelhi@29
+    url: jdbc:postgresql://172.17.0.2/
+    database: postgres
+    username: postgres
+    password: root
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 50
@@ -22,7 +23,7 @@ spring:
     jpa:
       show-sql: ture
       hibernate:
-        ddl-auto: none
+        ddl-auto: update
       open-in-view: false
       properties:
         hibernate:
