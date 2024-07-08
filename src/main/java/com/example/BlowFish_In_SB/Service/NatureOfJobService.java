@@ -15,7 +15,7 @@ public class NatureOfJobService {
     private NatureOfJobRepository natureOfJobRepository;
 
     public List<ResponseNatureOfJob> findAll() {
-        List<NatureOfJob> natureOfJobList=natureOfJobRepository.findAll();
+        List<NatureOfJob> natureOfJobList=natureOfJobRepository.findAlByIsValid(1);
         List<ResponseNatureOfJob> responseNatureOfJobs=natureOfJobList.stream().map(a->new ResponseNatureOfJob(a.getNatureOfJobId(),a.getJobName())).toList();
         return responseNatureOfJobs;
     }

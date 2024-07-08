@@ -24,6 +24,20 @@ public class RegistrationFormController {
     private NationalityMasterService nationalityMasterService;
     @Autowired
     private NatureOfJobService natureOfJobService;
+    @Autowired
+    private Appellation1Service appellation1Service;
+    @Autowired
+    private SuffixService suffixService;
+    @Autowired
+    private ServiceGroupService serviceGroupService;
+    @Autowired
+    private DesignationMasterService designationMasterService;
+    @Autowired
+    private LastEmployeeTypeService lastEmployeeTypeService;
+    @Autowired
+    private EventMasterService eventMasterService;
+    @Autowired
+    private  EmpClassMasterService empClassMasterService;
 
 
     @PostMapping("/")
@@ -38,12 +52,19 @@ public class RegistrationFormController {
     }
 
 @GetMapping("/test")
-    public ResponseEntity<String> test() throws NoSuchAlgorithmException {
+    public ResponseEntity<Map> test() throws NoSuchAlgorithmException {
       Map essentialMap = new HashMap();
-//      essentialMap.put("departmentList",departmentMasterService.findAll());
-//      essentialMap.put("centerList",centreMasterService.findAll());
-//      essentialMap.put("nationalityList",nationalityMasterService.findAll());
-//      essentialMap.put("natureOfJobList",natureOfJobService.findAll());
-       return ResponseEntity.ok("essentialMap");
+      essentialMap.put("departmentList",departmentMasterService.findAll());
+      essentialMap.put("centerList",centreMasterService.findAll());
+      essentialMap.put("nationalityList",nationalityMasterService.findAll());
+      essentialMap.put("natureOfJobList",natureOfJobService.findAll());
+      essentialMap.put("Appellation1",appellation1Service.findAll());
+      essentialMap.put("suffix",suffixService.findAll());
+      essentialMap.put("ServiceGroupMaster",serviceGroupService.findAll());
+      essentialMap.put("designations",designationMasterService.findAll());
+      essentialMap.put("lastemptype",lastEmployeeTypeService.findAll());
+      essentialMap.put("eventMaster",eventMasterService.findAll());
+      essentialMap.put("empClassMaster",empClassMasterService.findAll());
+       return ResponseEntity.ok(essentialMap);
     }
 }

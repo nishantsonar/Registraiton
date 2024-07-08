@@ -13,7 +13,7 @@ public class CentreMasterService {
     @Autowired
     private CentreMasterRepository centreMasterRepository;
     public List<ResponseDepatment> findAll(){
-        List<CentreMaster> CentreMasterList=centreMasterRepository.findAll();
+        List<CentreMaster> CentreMasterList=centreMasterRepository.findAllByIsValid(1);
         List<ResponseDepatment> responseCentreMasterList = CentreMasterList.stream().map(centreMaster1 -> new ResponseDepatment(centreMaster1.getCentreId(),centreMaster1.getCenterName())).toList();
  return responseCentreMasterList;
     }

@@ -32,7 +32,7 @@ public class gblt_nationality_mst {
     @Column(name = "gdt_entry")
     private Date entry;
     @Column(name = "gnum_isvalid")
-    private int isvalid;
+    private int isValid;
     @Column(name = "str_remarks")
     private String remarks;
 

@@ -16,7 +16,7 @@ public class DepartmentMasterService {
     private gblt_department_mst_repository gbltDepartmentMstRepository;
 
     public List<ResponseDepatment> findAll(){
-        List<gbltDepartmentMst> gbltDepartmentMstList=gbltDepartmentMstRepository.findAll();
+        List<gbltDepartmentMst> gbltDepartmentMstList=gbltDepartmentMstRepository.findAllByIsValid(1);
         List<ResponseDepatment> responseDepartments = gbltDepartmentMstList.stream().map(departmentMst1 -> new ResponseDepatment(departmentMst1.getDeptCode(),departmentMst1.getDeptName())).toList();
         return responseDepartments;
     }
