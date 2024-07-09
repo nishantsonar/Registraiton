@@ -1,0 +1,33 @@
+.error-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  errorImg {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  #reloadBtn {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #reloadBtn:hover {
+    background-color: #d32f2f;
+  }
+  
