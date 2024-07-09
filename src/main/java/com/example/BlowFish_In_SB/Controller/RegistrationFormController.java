@@ -1,8 +1,11 @@
 package com.example.BlowFish_In_SB.Controller;
 
 import com.example.BlowFish_In_SB.Service.*;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -52,8 +55,9 @@ public class RegistrationFormController {
     }
 
 @GetMapping("/test")
-    public ResponseEntity<Map> test() throws NoSuchAlgorithmException {
+    public ResponseEntity<Map> test(HttpServletRequest security) throws NoSuchAlgorithmException {
       Map essentialMap = new HashMap();
+    CsrfToken csrfToken=(CsrfToken) security.getAttribute(CsrfToken.class.getName());
       essentialMap.put("departmentList",departmentMasterService.findAll());
       essentialMap.put("centerList",centreMasterService.findAll());
       essentialMap.put("nationalityList",nationalityMasterService.findAll());

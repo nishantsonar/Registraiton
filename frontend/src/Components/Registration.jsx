@@ -3,6 +3,9 @@ import Tooltip from "@mui/material/Tooltip";
 import Header from "./Header";
 import $ from "jquery";
 import CryptoJS from "crypto-js";
+import { fetchUserData } from "./API";
+import Config from './Config';
+import { Link, useNavigate } from "react-router-dom";
 
 function Registration() {
   const [employmentCategory, setEmploymentCategory] = useState("");
@@ -56,17 +59,37 @@ const registerEmployee=(e)=>{
     emailId: encrypt(emailAddress).toString(),
   };
   console.log(user);
-  fetch("http://localhost:8080/", {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body:JSON.stringify(user),
-  }).then((res) => {
-    if (res.status === 200) {
-      alert("Regitration Complete...");
-      //navigate(`/Signin`);
+  // fetch("http://localhost:8080/", {
+  //   method: "POST",
+  //   headers: { "content-type": "application/json" },
+  //   body:JSON.stringify(user),
+  // }).then((res) => {
+  //   if (res.status === 200) {
+  //     alert("Regitration Complete...");
+  //     //navigate(`/Signin`);
+  //   } else {
+  //     alert("Please Fill Required Fields.");
+  //   }
+  // });
+  fetchUserData("auth/registration","POST",user).then((response) => {
+    // alert(response.status);
+    if(response.status === 200) {
+        console.log("User data:", response.data);
+    let token=response.data.token;
+    Config.token=token;
+    sessionStorage.setItem("token", response.data.token);
+    console.log("Config.token:", Config.token);
+    alert(`/menu`); // Redirect to the desired location
+      // return response.json(); // Parse the response body as JSON
     } else {
-      alert("Please Fill Required Fields.");
+      // setErrorMessage(response);
     }
+    })
+  .catch((error) => {
+   alert("FHDF");
+    // console.log(error); // Log the error to the console
+    // console.error("Error fetching user data:", error);
+    // setErrorMessage("response not found!");
   });
 };
 

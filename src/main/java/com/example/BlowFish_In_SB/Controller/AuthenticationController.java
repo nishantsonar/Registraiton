@@ -2,6 +2,7 @@ package com.example.BlowFish_In_SB.Controller;
 
 import com.example.BlowFish_In_SB.Dtos.LoginUserDto;
 import com.example.BlowFish_In_SB.Dtos.RegisterUserDto;
+import com.example.BlowFish_In_SB.Entity.RegistrationForm;
 import com.example.BlowFish_In_SB.Entity.User;
 import com.example.BlowFish_In_SB.Payloads.LoginResponse;
 import com.example.BlowFish_In_SB.Service.AuthenticationService;
@@ -38,10 +39,8 @@ public class AuthenticationController {
     public ResponseEntity<LoginResponse> authenticate(@RequestBody LoginUserDto loginUserDto, HttpServletRequest request) throws Exception {
         System.err.println("CLIENT IP ADDRESS::::: " + request.getRemoteAddr());
         System.err.println("User-Agent ADDRESS::::: " + request.getHeader("User-Agent"));
-
         System.out.println("Encrypted data EMAIL::: " + loginUserDto.getEmail());
         System.out.println("Encrypted data PASSWORD::: " + loginUserDto.getPassword());
-
 //        System.out.println("Decrypted data EMAIL::: " + AES_Algo.decrypt(loginUserDto.getEmail()));
 //        System.out.println("Decrypted data PASSWORD::: " + AES_Algo.decrypt(loginUserDto.getPassword()));
 
@@ -50,7 +49,6 @@ public class AuthenticationController {
 
 //        loginUserDto.setEmail(AES_Algo.decrypt(loginUserDto.getEmail()));
 //        loginUserDto.setPassword(AES_Algo.decrypt(loginUserDto.getPassword()));
-
         User authenticatedUser = authenticationService.authenticate(loginUserDto);
         if (authenticatedUser == null) {
             return ResponseEntity.notFound().build();
@@ -63,6 +61,11 @@ public class AuthenticationController {
 
             return ResponseEntity.ok(loginResponse);
         }
+
+    }
+    @PostMapping("/registration")
+    public String registraion(@RequestBody RegistrationForm registrationForm){
+        return "HELLO...";
 
     }
 }
